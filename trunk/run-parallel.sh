@@ -4,9 +4,9 @@
 
 working_dir=/scratch/wang/fs-test
 
-parallel=/home/wang/FS-test/parallel
+parallel=/home/wang/FS-test/lustre-test/parallel.pl
 
-fs_test=/home/wang/FS-test/fs-test.py
+fs_test=/home/wang/FS-test/lustre-test/fs-test.py
 
 nodes=(
     compute-4-0.local
@@ -45,6 +45,10 @@ cd $working_dir
     for((i=0; i<1008; i++)); do 
 	echo "dir=$working_dir/\$(hostname -a)/\$\$; mkdir -p \$dir; cd \$dir; python -u $fs_test"
     done 
-} | $parallel --no-notice -j12 $parallel_nodes
+} | perl $parallel --no-notice -j12 $parallel_nodes
 
 exit
+
+# { for c in compute-*; do echo rm -rf $c; done } | /home/wang/FS-test/lustre-test/parallel.pl -j20
+ 
+# { for c in compute-*/*; do echo rm -rf  $c; done } | /home/wang/FS-test/lustre-test/parallel.pl --no-notice -j60 

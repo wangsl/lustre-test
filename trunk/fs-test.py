@@ -110,12 +110,9 @@ if __name__ == "__main__" :
         file_size *= 1.54
         file_size = int(file_size)
         fs_test.write(file_index=i, file_size=file_size)
-        fs_test.read(n=10)
+        fs_test.read(n=2)
         i = i + 1
 
     #fs_test.remove()
 
 
-    
-
-    
