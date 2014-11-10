@@ -68,7 +68,7 @@ class FileSystemTest :
         return
 
     def _init_data(self) :
-        n = 1024*1024
+        n = 1024*1024*12
         self._data = []
         mu = 0.0
         sigma=1.0
@@ -98,14 +98,13 @@ class FileSystemTest :
         for f in self._files :
             f.remove()
         return
-    
 
 if __name__ == "__main__" :
 
     fs_test = FileSystemTest()
 
     i = 0
-    while i < 1000 :
+    while i < 2000 :
         file_size = random.uniform(1, 102400)
         file_size *= 1.54
         file_size = int(file_size)
@@ -113,6 +112,5 @@ if __name__ == "__main__" :
         fs_test.read(n=2)
         i = i + 1
 
-    #fs_test.remove()
-
+    fs_test.remove()
 
