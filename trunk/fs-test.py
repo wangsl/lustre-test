@@ -105,12 +105,11 @@ if __name__ == "__main__" :
 
     i = 0
     while i < 2000 :
-        file_size = random.uniform(1, 102400)
-        file_size *= 1.54
+        file_size = random.uniform(1, 85000)
         file_size = int(file_size)
         fs_test.write(file_index=i, file_size=file_size)
         fs_test.read(n=2)
         i = i + 1
 
-    fs_test.remove()
+    #fs_test.remove()
 
